@@ -193,8 +193,8 @@ function useDrag(
 
       document.removeEventListener('mouseup', onMouseUp);
       document.removeEventListener('mousemove', onMouseMove);
-      document.removeEventListener('touchend', onMouseUp);
-      document.removeEventListener('touchmove', onMouseMove);
+      event.currentTarget.removeEventListener('touchend', onMouseUp);
+      event.currentTarget.removeEventListener('touchmove', onMouseMove);
       mouseMoveEventRef.current = null;
       mouseUpEventRef.current = null;
 
@@ -206,8 +206,8 @@ function useDrag(
 
     document.addEventListener('mouseup', onMouseUp);
     document.addEventListener('mousemove', onMouseMove);
-    document.addEventListener('touchend', onMouseUp);
-    document.addEventListener('touchmove', onMouseMove);
+    e.currentTarget.addEventListener('touchend', onMouseUp);
+    e.currentTarget.addEventListener('touchmove', onMouseMove);
     mouseMoveEventRef.current = onMouseMove;
     mouseUpEventRef.current = onMouseUp;
   };
